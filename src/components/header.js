@@ -19,7 +19,7 @@ const HeaderContainer = styled.div`
   padding: 1.45rem 1.0875rem;
 `;
 
-const Header = ({ siteTitle }) => (
+const Header = ({ data }) => (
   <HeaderWrapper>
     <HeaderContainer>
       <h1 style={{ margin: 0 }}>
@@ -33,6 +33,8 @@ const Header = ({ siteTitle }) => (
           <img src={logo} alt="Level Up Logo"/>
         </Link>
       </h1>
+      <p>{data.site.siteMetadata.title}</p>
+      <p>{data.site.siteMetadata.desc}</p>
       <nav>
         <ul>
           <li>
@@ -47,4 +49,4 @@ const Header = ({ siteTitle }) => (
   </HeaderWrapper>
 )
 
-export default Header
+export default Header;
