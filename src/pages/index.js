@@ -1,9 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
 const IndexPage = ({ data }) => (
   <div>
     <h1>Hi people</h1>
+    <Img sizes={data.background.sizes} />
     <p>{data.site.siteMetadata.title}</p>
     <p>{data.site.siteMetadata.desc}</p>
     <p>Welcome to your new Gatsby site.</p>
@@ -21,5 +23,10 @@ export const query = graphql`
         desc
       }
     }
+    background: imageSharp(id: { regex: "/images/bg.jpeg/" }) {
+      sizes(maxWidth: 1240, grayscale: true) {
+        ...GatsbyImageSharpSizes
+      }
+    }
   }
-`
+`;
